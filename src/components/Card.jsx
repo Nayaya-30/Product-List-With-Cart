@@ -1,3 +1,4 @@
+/*******************    💫 Codegeex Inline Diff    *******************/
 import { useState, useEffect } from 'react';
 
 // Import all images dynamically using Vite's import.meta.glob
@@ -5,6 +6,7 @@ const imageModules = import.meta.glob('../assets/images/*.jpg', { eager: true })
 
 const getImagePath = (imagePath) => {
   // Create the key for import.meta.glob
+/****************  08a93e35d4b840f7b2dfb2e0119ac72a  ****************/
   const imageKey = `../assets/images/${imagePath.split('/').pop()}`;
   const imageModule = imageModules[imageKey];
   return imageModule ? imageModule.default : null;
@@ -49,7 +51,7 @@ const Card = ({ product, onAddToCart, inCart }) => {
   const imageSrc = getImagePath(product.image.desktop);
 
   return (
-    <article className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+    <article className="bg-white rounded-lg overflow-hidden">
       <div className="relative">
         {imageSrc ? (
           <img 
@@ -64,17 +66,17 @@ const Card = ({ product, onAddToCart, inCart }) => {
         )}
         
         {quantity > 0 ? (
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-full flex items-center">
+          <div className="quantity-controls">
             <button 
               onClick={decrementQuantity}
-              className="w-8 h-8 rounded-full border-2 border-orange-500 text-orange-500 flex items-center justify-center font-bold"
+              className="quantity-btn decrement"
             >
               -
             </button>
-            <span className="px-4">{quantity}</span>
+            <span className="quantity-display">{quantity}</span>
             <button 
               onClick={incrementQuantity}
-              className="w-8 h-8 rounded-full border-2 border-orange-500 bg-orange-500 text-white flex items-center justify-center font-bold"
+              className="quantity-btn increment"
             >
               +
             </button>
@@ -82,17 +84,22 @@ const Card = ({ product, onAddToCart, inCart }) => {
         ) : (
           <button
             onClick={handleAddToCart}
-            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-full border-2 border-orange-500 py-2 px-6 flex items-center hover:bg-orange-500 hover:text-white transition-colors"
+            className="add-to-cart-btn"
           >
-            <span className="mr-2">+</span> Add to Cart
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+            </svg>
+            <span className="ml-2 font-semibold">Add to Cart</span>
           </button>
         )}
       </div>
       
       <div className="p-4">
-        <p className="text-gray-500 text-sm">{product.category}</p>
-        <h2 className="font-semibold">{product.name}</h2>
-        <p className="text-orange-500 font-semibold">${product.price.toFixed(2)}</p>
+        <p className="text-rose-400 text-sm">{product.category}</p>
+        <h2 className="font-semibold text-rose-900">{product.name}</h2>
+        <p className="text-red font-semibold">${product.price.toFixed(2)}</p>
       </div>
     </article>
   );
