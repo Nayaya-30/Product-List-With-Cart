@@ -92,6 +92,7 @@ const App = () => {
                                     product={product}
                                     onAddToCart={addToCart}
                                     inCart={cartItem}
+                                    addToCartIcon={'./assets/images/icon-add-to-cart.svg'}
                                 />
                             );
                         })}

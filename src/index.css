@@ -15,7 +15,7 @@ Red: hsl(14, 86%, 42%)
 */
 
 :root {
-  --red: hsl(14, 86%, 42%);
+  --rose-700: hsl(14, 86%, 42%);
   --green: hsl(159, 69%, 38%);
   --rose-50: hsl(20, 50%, 98%);
   --rose-100: hsl(13, 31%, 94%);
@@ -38,30 +38,30 @@ body {
   }
   
   .add-to-cart-btn {
-    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2
-    bg-white rounded-full border border-rose-300 py-2 px-3
-    flex items-center hover:bg-red hover:border-red hover:text-white transition-colors
+    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 -translate-y-[-2rem]
+    bg-rose-50 text-rose-700 shadow-md rounded-full w-30 p-2 px-3
+    flex items-center justify-between hover:bg-rose-100 transition-colors
     cursor-pointer;
   }
   
   .quantity-controls {
-    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2
-    bg-white rounded-full flex items-center border border-rose-300;
+    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 -translate-y-[-2rem] py-1 px-2 w-28
+    rounded-full flex items-center justify-between gap-4 bg-rose-700;
   }
   
   .quantity-btn {
-    @apply w-8 h-8 rounded-full flex items-center justify-center font-bold cursor-pointer;
+    @apply w-4 h-4 p-1 rounded-full flex items-center justify-center font-bold border-2 border-rose-50 cursor-pointer;
   }
   
   .quantity-btn.decrement {
-    @apply text-red border-none;
+    @apply text-rose-100;
   }
   
   .quantity-btn.increment {
-    @apply bg-red text-white border-none;
+    @apply text-rose-100;
   }
   
   .quantity-display {
-    @apply px-4 py-2 font-semibold;
+    @apply font-semibold text-rose-50;
   }
 }
